@@ -1,3 +1,4 @@
+import 'package:automatedvoicecontroller/netcam.dart';
 import 'package:automatedvoicecontroller/streaming_page.dart';
 import 'package:flutter/material.dart';
 import 'speech_to_text_page.dart';

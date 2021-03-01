@@ -35,7 +35,7 @@ class StreamingPage extends StatefulWidget {
 }
 
 class _StreamingPageState extends State<StreamingPage> {
-  String _streamUrl='http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4';
+  String _streamUrl='http://192.168.1.101:8080/video';
   String state;
   bool isPlaying;
   VlcPlayerController _vlcViewController;
@@ -64,7 +64,7 @@ class _StreamingPageState extends State<StreamingPage> {
         //http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4';
 
         // 'http://192.168.1.4:8081'
-      _streamUrl='http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4';
+      //_streamUrl='http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4';
 
     // }
     });
