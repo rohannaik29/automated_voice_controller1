@@ -112,6 +112,24 @@ class _SpeechScreenState extends State<SpeechScreen> {
         _speech.listen(
           onResult: (val) => setState(() {
             _text = val.recognizedWords;
+
+
+
+            if(_text.contains('left'))
+              SendToRaspberryPi().sendToRaspberryPi('Left');
+
+            if(_text.contains('right'))
+              SendToRaspberryPi().sendToRaspberryPi('Right');
+
+            if(_text.contains('forward'))
+              SendToRaspberryPi().sendToRaspberryPi('Forward');
+
+            if(_text.contains('backward'))
+              SendToRaspberryPi().sendToRaspberryPi('Backward');
+
+            if(_text.contains('stop'))
+              SendToRaspberryPi().sendToRaspberryPi('Stop');
+
             if (val.hasConfidenceRating && val.confidence > 0) {
               _confidence = val.confidence;
               setState(() => _isListening = false);
