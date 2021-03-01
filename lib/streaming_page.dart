@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
-Container btn(String dir, Size size) {
-  return Container(
-    width: size.width * 0.29,
-    height: size.height * 0.06,
-    child: RaisedButton(
-      onPressed: () {},
-      child: Text(dir),
-    ),
-  );
-}
+import 'SendToRaspberryPi.dart';
 
 class StreamingPage extends StatefulWidget {
   @override
@@ -21,13 +11,21 @@ class _StreamingPageState extends State<StreamingPage> {
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
 
+  Container btn(String dir, Size size) {
+    return Container(
+      width: size.width * 0.29,
+      height: size.height * 0.06,
+      child: RaisedButton(
+        onPressed: () => SendToRaspberryPi().sendToRaspberryPi(dir),
+        child: Text(dir),
+      ),
+    );
+  }
+
   @override
   void initState() {
-    // Create and store the VideoPlayerController. The VideoPlayerController
-    // offers several different constructors to play videos from assets, files,
-    // or the internet.
     _controller = VideoPlayerController.network(
-      'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+      'http://192.168.43.1:8080/video1',
     );
 
     // Initialize the controller and store the Future for later use.
@@ -84,32 +82,32 @@ class _StreamingPageState extends State<StreamingPage> {
               SizedBox(
                 height: size.height * 0.2,
               ),
-              Column(
-                children: [
-                  btn('Forward', size),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      btn('Left', size),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      btn('Stop', size),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      btn('Right', size),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  btn('Backward', size),
-                ],
-              ),
+              // Column(
+              //   children: [
+              //     btn('Forward', size),
+              //     SizedBox(
+              //       height: 10.0,
+              //     ),
+              //     Row(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         btn('Left', size),
+              //         SizedBox(
+              //           width: 10.0,
+              //         ),
+              //         btn('Stop', size),
+              //         SizedBox(
+              //           width: 10.0,
+              //         ),
+              //         btn('Right', size),
+              //       ],
+              //     ),
+              //     SizedBox(
+              //       height: 10.0,
+              //     ),
+              //     btn('Backward', size),
+              //   ],
+              // ),
             ],
           ),
         ),
