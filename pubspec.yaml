@@ -31,7 +31,7 @@ dependencies:
   speech_to_text: ^2.3.0
   highlight_text: ^0.7.2
   avatar_glow: ^1.2.0
-  video_player: ^1.0.1
+  flutter_vlc_player: ^4.0.3
   http: ^0.12.2
 
 
