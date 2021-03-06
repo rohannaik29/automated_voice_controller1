@@ -20,7 +20,7 @@ class _StreamingPageState extends State<StreamingPage> {
     );
   }
 
-  String _streamUrl='http://192.168.43.1:8080/video';
+  String _streamUrl='http://192.168.0.104:8081';
   String state;
   bool isPlaying;
   VlcPlayerController _vlcViewController;
