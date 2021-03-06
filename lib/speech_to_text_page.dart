@@ -113,8 +113,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
           onResult: (val) => setState(() {
             _text = val.recognizedWords;
 
-
-
             if(_text.contains('left'))
               SendToRaspberryPi().sendToRaspberryPi('Left');
 
